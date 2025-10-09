@@ -15,7 +15,6 @@ Stationmeteo <- data[which(data$NOM_USUEL== ""),]
 
 annee_choisie <- 2022  # choie de l'année !   Pour choisir une période : mettre l'année minimale
 
-
 meteo <- Stationmeteo[which(Stationmeteo$ANNEE == annee_choisie),]    # pour une période : changer == en > 
 attach(meteo)     # permet de mettre le nom d'une colonne directement plutôt que tableau$colonne
 # Conversion au format date si nécessaire
@@ -47,7 +46,7 @@ meteo_long <- meteo_mensuel %>%
 # Diagramme avec ggplot2
 ggplot() +
   geom_col(data = meteo_mensuel, aes(x = month, y = P), fill = "skyblue", width = 0.6) +
-  geom_line(data = meteo_long, aes(x = month, y = Temp, color = Type, group = Type), size = 1.2) +
+  geom_line(data = meteo_long, aes(x = month, y = Temp, color = Type, group = Type), linewidth = 1.2) +
   geom_point(data = meteo_long, aes(x = month, y = Temp, color = Type), size = 2) +
   scale_color_manual(
     name = "Températures",
@@ -68,4 +67,3 @@ ggplot() +
     axis.text.y.right = element_text(color = "red"),
     legend.position = "right"
   )
-
