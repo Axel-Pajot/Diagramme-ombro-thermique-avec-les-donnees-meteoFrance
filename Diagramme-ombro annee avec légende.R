@@ -7,11 +7,11 @@ library(lubridate)
 library(ggplot2)
 
 # Import des donnees
-setwd("C:/Users/pajot/OneDrive/Bureau/Licence EDEN/Cours/Climato -Errol")
-data <- read.csv2("Q_85_previous-1950-2023_RR-T-Vent.csv", dec = ".")
+setwd("")     #selectionner le chemin d'acces a son fichier
+data <- read.csv2("", dec = ".")   #selectionner son fichier
 
 # Recherche des donnees de Noirmoutier
-Stationmeteo <- data[which(data$NOM_USUEL== "NOIRMOUTIER EN"),]
+Stationmeteo <- data[which(data$NOM_USUEL== ""),]
 
 annee_choisie <- 2022  # choie de l'année !   Pour choisir une période : mettre l'année minimale
 
@@ -68,3 +68,4 @@ ggplot() +
     axis.text.y.right = element_text(color = "red"),
     legend.position = "right"
   )
+
