@@ -15,7 +15,7 @@ Stationmeteo <- data[which(data$NOM_USUEL== ""),]
 
 annee_choisie <- 2022  # choie de l'année !   Pour choisir une période : mettre l'année minimale
 
-meteo <- Stationmeteo[which(Stationmeteo$ANNEE == annee_choisie),]    # pour une période : changer == en > 
+meteo <- Stationmeteo[substr(Stationmeteo$AAAAMMJJ,1,4) == annee_choisie),]    # pour une période : changer == en > 
 attach(meteo)     # permet de mettre le nom d'une colonne directement plutôt que tableau$colonne
 # Conversion au format date si nécessaire
 meteo$AAAAMMJJ <- as.Date(as.character(meteo$AAAAMMJJ), format = "%Y%m%d")
@@ -67,3 +67,4 @@ ggplot() +
     axis.text.y.right = element_text(color = "red"),
     legend.position = "right"
   )
+
